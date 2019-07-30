@@ -1,6 +1,7 @@
-package demo.kjt.coroutine
+package demo.kjt.coroutine.activity
 
 import android.os.Bundle
+import demo.kjt.coroutine.R
 import kotlinx.android.synthetic.main.activity_fib.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

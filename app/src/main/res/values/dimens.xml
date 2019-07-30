@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_margin">8dp</dimen>
+    <dimen name="sn_16sp">16sp</dimen>
+    <dimen name="sn_13sp">13sp</dimen>
+    <dimen name="sn_14dp">14dp</dimen>
+    <dimen name="sn_14sp">14sp</dimen>
+</resources>

@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent"
-        tools:context=".FibActivity">
+        tools:context=".activity.FibActivity">
 
     <TextView
             android:id="@+id/tv_value"

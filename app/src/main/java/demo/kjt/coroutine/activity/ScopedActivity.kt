@@ -1,4 +1,4 @@
-package demo.kjt.coroutine
+package demo.kjt.coroutine.activity
 
 import android.support.v7.app.AppCompatActivity
 import kotlinx.coroutines.CoroutineScope
