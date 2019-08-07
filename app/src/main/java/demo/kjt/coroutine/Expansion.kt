@@ -1,5 +1,6 @@
 package demo.kjt.coroutine
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
@@ -7,30 +8,29 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.ObsoleteCoroutinesApi
 import kotlinx.coroutines.channels.actor
 
 /**
  * Created by kjt on 2019-07-30
  */
+@ObsoleteCoroutinesApi
 fun View.onClick(action: suspend (View) -> Unit) {
-    var currentTime: Long
-    var lastTime = 0L
     val eventAction = GlobalScope.actor<View>(Dispatchers.Main) {
-            for (event in channel) action(event)
+        for (event in channel) action(event)
     }
     setOnClickListener {
-        currentTime = System.currentTimeMillis()
-        if (currentTime - lastTime >= 1500) {
-            lastTime = currentTime
-            eventAction.offer(it)
-        }
+        val b = eventAction.offer(it)
+        Log.i("kkk", b.toString())
     }
     /*val channel = Channel<View>(capacity = Channel.RENDEZVOUS)
     GlobalScope.launch(Dispatchers.Main) {
-        for (item in channel) action(item)
+        for (item in channel) {
+            action(item)
+        }
     }
     setOnClickListener {
-        GlobalScope.launch { channel.offer(it) }
+       channel.offer(it)
     }*/
 }
 

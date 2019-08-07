@@ -30,20 +30,18 @@ class CountDownActivity : ScopedActivity() {
                 tv_countdown.text = "reStart"
                 tv_countdown.isClickable = true
             }
-        }*/
+        }
         btn_stop.setOnClickListener {
             job.cancel()
             btn_stop.visibility = View.GONE
             tv_countdown.isClickable = true
-//            btn_stop.text = "reStart"
-        }
+            btn_stop.text = "reStart"
+        }*/
         tv_countdown.onClick {
-            btn_stop.visibility = View.VISIBLE
             for (i in 10 downTo 1) {
                 tv_countdown.text = "$i"
                 delay(1000)
             }
-            btn_stop.visibility = View.GONE
             tv_countdown.text = "reStart"
         }
     }

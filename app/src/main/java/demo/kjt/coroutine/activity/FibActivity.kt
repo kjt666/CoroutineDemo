@@ -3,10 +3,7 @@ package demo.kjt.coroutine.activity
 import android.os.Bundle
 import demo.kjt.coroutine.R
 import kotlinx.android.synthetic.main.activity_fib.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 @ExperimentalCoroutinesApi
 class FibActivity : ScopedActivity() {
@@ -19,7 +16,7 @@ class FibActivity : ScopedActivity() {
         setContentView(R.layout.activity_fib)
         launch {
             var count = 0
-            while (true){
+            while (true) {
                 tv_value.text = "${++count}:\n$mValue"
                 delay(100)
             }
@@ -32,9 +29,11 @@ class FibActivity : ScopedActivity() {
                 mValue = "fib($mKey) = ${fib(mKey)}"
             }*/
             launch(Dispatchers.IO) {
+                btn_key.isClickable = false
                 mKey += 5
                 mValue = "fib($mKey) = ..."
                 mValue = "fib($mKey) = ${fib(mKey)}"
+                btn_key.isClickable = true
             }
         }
     }

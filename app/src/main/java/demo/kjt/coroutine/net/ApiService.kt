@@ -12,6 +12,17 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET(UrlConstant.getNews)
-    fun getNews(@Query("type") type: String,
-                @Query("key") key: String): Deferred<NewsBean>
+    fun getNews(
+        @Query("type") type: String,
+        @Query("key") key: String
+    ): Deferred<NewsBean>
+
+    fun login(
+        @Query("phone") phone: String,
+        @Query("pwd") pwd: String
+    ):Deferred<String>
+
+    fun getToken(
+        @Query("userId") userId: String
+    ):Deferred<String>
 }
